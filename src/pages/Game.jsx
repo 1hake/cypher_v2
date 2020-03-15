@@ -38,7 +38,7 @@ export const Game = props => {
       <ReactAudioPlayer
         autoPlay
         loop
-        src={"/sounds/" + bpm + "bpm.mp3"}
+        src={"sounds/" + bpm + "bpm.mp3"}
       ></ReactAudioPlayer>
       <WordContainer />
       <CountdownCircleTimer
