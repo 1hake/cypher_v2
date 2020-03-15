@@ -28,20 +28,25 @@ const itemStyle = checked => {
   };
 };
 
-function Item(word) {
+function Item(word, setCount, count) {
   const [checked, setChecked] = useState(false);
   return (
-    <div onClick={() => setChecked(!checked)} style={{ ...itemStyle(checked) }}>
+    <div
+      onClick={() => {
+        setChecked(!checked);
+      }}
+      style={{ ...itemStyle(checked) }}
+    >
       {word}
     </div>
   );
 }
 
-export function WordContainer() {
+export function WordContainer({ count, setCount }) {
   return (
     <div style={{ ...containerStyle }}>
       {words.map(word => {
-        return Item(word);
+        return Item(word, setCount, count);
       })}
     </div>
   );

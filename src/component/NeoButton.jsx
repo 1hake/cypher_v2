@@ -7,7 +7,7 @@ const style = (color, selected) => ({
   height: selected ? "70px" : "50px",
   fontFamily: "Barlow",
   fontWeight: "bold",
-  fontSize: "0.2em",
+  fontSize: "1em",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",

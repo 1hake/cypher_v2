@@ -8,7 +8,7 @@ export const MyRouter = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/game/:bpm">
+        <Route path="/game/:mode/:url">
           <InitGame />
         </Route>
         <Route path="/">

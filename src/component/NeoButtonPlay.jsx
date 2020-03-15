@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const style = color => ({
+const style = (color, disable) => ({
   background: color,
   boxShadow: "20px 20px 60px #3d3e3d, -20px -20px 60px #535453",
   width: "150px",
@@ -13,19 +13,19 @@ const style = color => ({
   justifyContent: "center",
   alignItems: "center",
   textAlign: "center",
-  color: "white",
+  color: disable ? "black" : "white",
   borderRadius: "100%"
 });
 
 const linkStyle = { textDecoration: "none", color: "white" };
 
-const NeoButton = ({ text, color, link }) => {
+const NeoButton = ({ text, color, link, disable }) => {
   return (
-    <div style={{ ...style(color) }}>
-      <Link style={{ ...linkStyle }} to={link}>
+    <Link style={{ ...linkStyle }} to={link}>
+      <div style={{ ...style(color, disable) }}>
         <span class="fas fa-play"></span>
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 };
 

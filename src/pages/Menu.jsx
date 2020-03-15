@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import NeoButtonPlay from "../component/NeoButtonPlay";
 import NeoButton from "../component/NeoButton";
-import { bpmList } from "../data/mode";
+import { bpmList, modeList } from "../data/mode";
+import TextField from "@material-ui/core/TextField";
 
 const myStyle = {
   height: "100vh",
@@ -12,7 +13,7 @@ const myStyle = {
   width: "100%",
   fontFamily: "Barlow",
   fontWeight: "bold",
-  fontSize: "4em",
+  fontSize: "1em",
   color: "white",
   flexDirection: "column"
 };
@@ -25,25 +26,52 @@ const containerStyle = {
   height: "200px"
 };
 
+const textStyle = {
+  margin: "40px",
+  color: "white"
+};
+
 export const Menu = props => {
-  const [bpm, setBpm] = useState(80);
-  console.log(bpm);
+  const [mode, setMode] = useState(null);
+  const [url, setUrl] = useState("");
+  console.log("urlinstate", url);
   return (
     <div style={{ ...myStyle }}>
-      <p>Welcome to cypher</p>
+      <span>Enter a youtube url:</span>
+      <p>
+        You can pick some{" "}
+        <a
+          target="blank"
+          href="https://www.youtube.com/results?search_query=typebeat"
+        >
+          here
+        </a>
+      </p>
+      <TextField
+        style={{ ...textStyle }}
+        id="standard-basic"
+        label="Standard"
+        onChange={e => {
+          console.log(e.target.value);
+          setUrl(e.target.value.split("=")[1]);
+        }}
+      />
+      <p>Select your mode</p>
       <div style={{ ...containerStyle }}>
-        {bpmList.map(item => {
+        {modeList.map(modeName => {
           return (
-            <NeoButton
-              selected={item === bpm}
-              onClick={() => setBpm(item)}
-              text={item}
-            ></NeoButton>
+            <span
+              style={{ color: mode === modeName ? "black" : "white" }}
+              onClick={() => setMode(modeName)}
+            >
+              {modeName}
+            </span>
           );
         })}
       </div>
       <NeoButtonPlay
-        link={"/game/" + bpm}
+        disable={url.length === 0}
+        link={`/game/${mode}/${url}`}
         text="go to the game"
         color=""
       ></NeoButtonPlay>
