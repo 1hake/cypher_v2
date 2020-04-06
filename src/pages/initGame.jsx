@@ -1,19 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import { Game } from "./Game";
-
-const myStyle = {
-  height: "100vh",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  backgroundColor: "#262626",
-  width: "100%",
-  fontFamily: "Barlow",
-  fontWeight: "bold",
-  color: "white",
-  flexDirection: "column"
-};
+import { MyContext } from "../reducer/GameContext";
 
 function renderTime(value) {
   if (value === 0) {
@@ -22,30 +10,26 @@ function renderTime(value) {
   console.log(value);
   return (
     <div className="timer">
-      <div className="text">Remaining</div>
       <div className="value">{value}</div>
-      <div className="text">seconds</div>
+      <div className="text">Secondes</div>
     </div>
   );
 }
+
 export function InitGame() {
-  const [hasStarted, setHasStarted] = useState(false);
+  const { playing, setPlaying } = useContext(MyContext);
   return (
-    <div style={{ ...myStyle }}>
-      {!hasStarted ? (
-        <CountdownCircleTimer
-          isPlaying
-          durationSeconds={3}
-          colors={[["#ffffff", 0.33], ["#ffffff", 0.33], ["#ffffff"]]}
-          onComplete={() => {
-            setHasStarted(true);
-            return [false, 0];
-          }}
-          renderTime={renderTime}
-        />
-      ) : (
-        <Game></Game>
-      )}
-    </div>
+    <>
+      <h5 class="p-4">Le jeu commence dans</h5>
+      <CountdownCircleTimer
+        durationSeconds={2}
+        colors={[["#ffffff", 0.33], ["#ffffff", 0.33], ["#ffffff"]]}
+        onComplete={() => {
+          setPlaying(true);
+          return [false, 0];
+        }}
+        renderTime={renderTime}
+      />
+    </>
   );
 }

@@ -19,7 +19,7 @@ const myStyle = {
   fontFamily: "Barlow",
   fontWeight: "bold",
   color: "white",
-  flexDirection: "column"
+  flexDirection: "column",
 };
 
 function renderTime(value) {
@@ -36,7 +36,7 @@ function renderTime(value) {
   );
 }
 
-export const Game = props => {
+export const Game = (props) => {
   let { mode, url } = useParams();
   const [duration, setDuration] = useState(null);
   const [finish, setFinish] = useState(false);
@@ -46,7 +46,7 @@ export const Game = props => {
       {!finish ? (
         <>
           <ReactPlayer
-            ref={player => setDuration(player)}
+            ref={(player) => setDuration(player)}
             controls={false}
             width={0}
             height={0}
@@ -57,7 +57,6 @@ export const Game = props => {
             }
             playing
           />
-          )}
           {mode === "Wordcloud" && (
             <WordContainer score={score} setScore={setScore} />
           )}

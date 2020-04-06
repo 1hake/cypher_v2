@@ -3,8 +3,15 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import { MyRouter } from "./Router";
+import { GameContext } from "./reducer/GameContext";
 
-ReactDOM.render(<MyRouter />, document.getElementById("root"));
+const App = () => (
+  <GameContext>
+    <MyRouter />
+  </GameContext>
+);
+
+ReactDOM.render(<App />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
