@@ -14,11 +14,10 @@ import { PlayerName } from "../component/PlayerName";
 import { useEffect } from "react";
 
 const myStyle = {
-  height: "100vh",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  backgroundColor: "#28292c",
+
   width: "100%",
   fontFamily: "Barlow",
   fontWeight: "bold",

@@ -19,12 +19,24 @@ const style = {
 
 export const Finish = ({ score }) => {
   const { player1, player2, reset } = useContext(MyContext);
-  let bestPlayer = player1.score > player2.score ? player1 : player2;
+  let bestPlayer = false;
+  if (player1.score > player2.score) {
+    bestPlayer = player1.score > player2.score ? player1 : player2;
+  }
   return (
     <div style={{ ...style }}>
       <h2 style={{ fontSize: "1em" }}>Bravo vous avez terminé</h2>
-      <h4 class="font-weight-bold">Le gagnant est {bestPlayer.name}</h4>
-      <h4>avec un score de {bestPlayer.score}</h4>
+      {!bestPlayer ? (
+        <>
+          <h4 class="font-weight-bold">Vous avez fait égalité</h4>
+          <h4>avec un score de {player1.score}</h4>
+        </>
+      ) : (
+        <>
+          <h4 class="font-weight-bold">Le gagnant est {bestPlayer.name}</h4>
+          <h4>avec un score de {bestPlayer.score}</h4>
+        </>
+      )}
       <Link
         onClick={reset}
         style={{ textDecoration: "none", color: "#af422d" }}

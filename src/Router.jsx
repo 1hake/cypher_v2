@@ -7,27 +7,12 @@ import { GameContext } from "./reducer/GameContext";
 import { Players } from "./pages/Players";
 import { Instrumental } from "./pages/Instrumental";
 import { Words } from "./pages/Words";
+import { Intro } from "./pages/Intro";
+import { Layout } from "./pages/Layout";
 
 export const MyRouter = () => {
   const context = useContext(GameContext);
   console.log("MyRouter -> context", context);
 
-  return (
-    <Router>
-      <Switch>
-        <Route path="/players">
-          <Players></Players>
-        </Route>
-        <Route path="/instrumental">
-          <Instrumental></Instrumental>
-        </Route>
-        <Route path="/words/">
-          <Words />
-        </Route>
-        <Route path="/">
-          <Players></Players>
-        </Route>
-      </Switch>
-    </Router>
-  );
+  return <Layout></Layout>;
 };

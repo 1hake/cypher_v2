@@ -3,65 +3,43 @@ import TextField from "@material-ui/core/TextField";
 import { MyContext } from "../reducer/GameContext";
 import { Link } from "react-router-dom";
 import ReactPlayer from "react-player";
+import { MyLink } from "../component/MyLink";
+import { BeatList } from "../component/BeatList";
 
 const myStyle = {
-  height: "100vh",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  backgroundColor: "#28292c",
   width: "100%",
   fontFamily: "Barlow",
   fontWeight: "bold",
   fontSize: "1em",
-  color: "#777676",
+  color: "#333333",
   flexDirection: "column",
 };
 
-const textStyle = {
-  margin: "40px",
-  color: "#777676",
-  width: "50%",
-};
-
 export const Instrumental = (props) => {
-  const { instru, setInstru } = useContext(MyContext);
+  const { playing, instru } = useContext(MyContext);
   return (
     <div style={{ ...myStyle }}>
       <h1 class="p-4">
-        <span class="font-weight-bold">2.</span> Choisir votre instru sur
-        youtube:
+        <span class="font-weight-bold">
+          2. Choisir votre instru sur youtube:
+        </span>
       </h1>
-      <TextField
-        style={{ ...textStyle }}
-        inputProps={{ fontFamily: "Barlow", color: "#777676" }}
-        id="standard-basic"
-        label="Enter a youtube url..."
-        onChange={(e) => {
-          console.log(e.target.value);
-          setInstru(e.target.value.split("=")[1]);
-        }}
+      <ReactPlayer
+        ref={(player) => console.log(player)}
+        controls={false}
+        width={0}
+        height={0}
+        url={
+          instru
+            ? "https://www.youtube.com/watch?v=" + instru + "?start=20"
+            : "https://www.youtube.com/watch?v=KClRc_qd-KI"
+        }
+        playing={playing}
       />
-      <p>
-        You can pick some instrumental{" "}
-        <a
-          target="blank"
-          href="https://www.youtube.com/results?search_query=typebeat"
-        >
-          here
-        </a>
-      </p>
-      <span class="d-flex display-2 p-5">
-        <Link
-          style={{ textDecoration: "none", color: "#af422d" }}
-          to="/players"
-        >
-          <i class="fas fa-arrow-left p-5"></i>
-        </Link>
-        <Link style={{ textDecoration: "none", color: "#af422d" }} to="/words/">
-          <i class="fas fa-arrow-right p-5"></i>
-        </Link>
-      </span>
+      <BeatList></BeatList>
     </div>
   );
 };
