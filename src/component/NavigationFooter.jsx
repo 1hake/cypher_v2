@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import Slide from "@material-ui/core/Slide";
 
 import { MyLink } from "./MyLink";
 import { MusicIcon } from "../svg/music-icon";
@@ -7,26 +8,23 @@ import { MyContext } from "../reducer/GameContext";
 
 export const NavigationFooter = (props) => {
   const { page } = useContext(MyContext);
-  console.log("props.matchs", props.matchs);
+  console.log("props.matchs", page);
 
   const elementStep = [
     {
       color: "#453df5",
       link: "players",
-
-      icon: <MicIcon color={"#453df5"}></MicIcon>,
+      icon: "https://img.icons8.com/color/48/000000/decision.png",
     },
     {
       color: "#453df5",
       link: "instrumental",
-      icon: <MusicIcon color={"#453df5"}></MusicIcon>,
+      icon: "https://img.icons8.com/color/48/000000/musically.png",
     },
     {
       color: "#453df5",
       link: "words",
-      icon: (
-        <i style={{ color: "#453df5" }} class="fa-4x fas fa-play-circle"></i>
-      ),
+      icon: "https://img.icons8.com/color/48/000000/play.png",
     },
   ];
 
@@ -37,16 +35,30 @@ export const NavigationFooter = (props) => {
         bottom: 0,
         position: "absolute",
         left: 0,
-        height: "100px",
+        height: "140px",
         width: "100%",
-        // backgroundColor: "rgb(51, 51, 51)",
       }}
       class="justify-content-center  align-items-center col-sm d-flex"
     >
-      {elementStep.map((element) => {
+      {elementStep.map((element, index) => {
         return (
           <div class="col d-flex justify-content-center">
-            <MyLink to={element.link}>{element.icon}</MyLink>
+            <MyLink to={element.link}>
+              <Slide in={true} timeout={200 * index} direction={"up"}>
+                <div
+                  class={"d-flex justify-content-center align-items-center"}
+                  style={{
+                    height: "70px",
+                    width: "70px",
+                    boxShadow: "0px 0px 10px -2px rgba(0,0,0,0.75)",
+                    backgroundColor: page === element.link ? "black" : "white",
+                    borderRadius: "25px",
+                  }}
+                >
+                  <img alt={"icon"} src={element.icon}></img>
+                </div>
+              </Slide>
+            </MyLink>
           </div>
         );
       })}

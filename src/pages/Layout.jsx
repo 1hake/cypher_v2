@@ -7,24 +7,21 @@ import { Intro } from "./Intro";
 import { Players } from "./Players";
 import { Instrumental } from "./Instrumental";
 import { Grow } from "@material-ui/core";
+import { Words } from "./Words";
+import { VerticalLinearStepper } from "./Steps";
 
 const noFooter = ["intro", "words"];
 
 export const Layout = (props) => {
   const { page } = useContext(MyContext);
   return (
-    <div class="">
-      <div class="container  justify-content-center">
+    <>
+      {
         {
-          {
-            intro: <Intro></Intro>,
-            players: <Players></Players>,
-            instrumental: <Instrumental></Instrumental>,
-          }[page]
-        }
-      </div>
-
-      {!noFooter.includes(page) && <NavigationFooter></NavigationFooter>}
-    </div>
+          setup: <VerticalLinearStepper></VerticalLinearStepper>,
+          words: <Words />,
+        }[page]
+      }
+    </>
   );
 };

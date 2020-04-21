@@ -13,6 +13,7 @@ const myStyle = {
   fontSize: "1em",
   color: "#333333",
   flexDirection: "column",
+  height: "400px",
 };
 
 const textStyle = {
@@ -25,32 +26,29 @@ export const Players = (props) => {
   const { player1, player2, setPlayer } = useContext(MyContext);
   return (
     <div style={{ ...myStyle }}>
-      <h1 class="p-4 text-center">
-        <span class="font-weight-bold">1.</span> Choisir le nom des joueurs:
-      </h1>
       <div class="align-items-center d-flex flex-column justify-content-center">
-        <div class="m-4">
-          <h5 class=" text-center m-2">
+        <div class="m-3">
+          <h5 class="  m-2">
             <span class="font-weight-bold">Player 1:</span>
           </h5>
           <input
             class="form-control"
             type="text"
-            placeholder="Player 1"
+            placeholder="Entrez le blase"
             onChange={(e) => {
               console.log(e.target.value);
               setPlayer(1, e.target.value);
             }}
           />
         </div>
-        <div class="m-4">
-          <h5 class=" text-center m-2">
+        <div class="m-3">
+          <h5 class=" m-2">
             <span class="font-weight-bold">Player 2:</span>
           </h5>
           <input
             class="form-control"
             type="text"
-            placeholder="Player 2"
+            placeholder="Entrez le blase"
             onChange={(e) => {
               console.log(e.target.value);
               setPlayer(2, e.target.value);

@@ -8,7 +8,7 @@ export const BeatList = (props) => {
   const [content, setContent] = useState({ items: [] });
 
   return (
-    <div class="col-xs-10 d-flex  flex-wrap">
+    <div class=" d-flex  flex-wrap justify-content-center ">
       {beatList.map((item) => {
         return (
           <div
@@ -21,21 +21,13 @@ export const BeatList = (props) => {
               borderRadius: "25px",
               color: "white",
             }}
-            class="d-flex justify-content-center align-items-center p-2 m-2"
+            class="d-flex justify-content-center align-items-center p-3 m-2"
           >
             {item.title}
           </div>
         );
       })}
-      {/* <input
-        class="form-control"
-        type="text"
-        placeholder="Youtube Link"
-        onChange={(e) => {
-          console.log(e.target.value);
-          setInstru(e.target.value.split("=")[1]);
-        }}
-      /> */}
+
       <ModalBeat content={content}></ModalBeat>
     </div>
   );

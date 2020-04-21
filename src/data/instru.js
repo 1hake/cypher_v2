@@ -21,16 +21,12 @@ export const beatList = [
     color: "rgb(255, 239, 81)",
     items: [
       {
-        name: "Drake",
+        name: "Drake Type Beat",
         url: "https://www.youtube.com/watch?v=mY2fYImsniA",
       },
       {
         name: "Drake",
-        url: "https://www.youtube.com/watch?v=mY2fYImsniA",
-      },
-      {
-        name: "Drake",
-        url: "https://www.youtube.com/watch?v=mY2fYImsniA",
+        url: "https://www.youtube.com/watch?v=tQZB5wu0xuE",
       },
     ],
     tag: "boom-bap",
@@ -41,12 +37,12 @@ export const beatList = [
     color: "rgb(0, 255, 190)",
     items: [
       {
-        name: "Drake",
+        name: "Drake Type Beat",
         url: "https://www.youtube.com/watch?v=mY2fYImsniA",
       },
       {
         name: "Drake",
-        url: "https://www.youtube.com/watch?v=mY2fYImsniA",
+        url: "https://www.youtube.com/watch?v=tQZB5wu0xuE",
       },
     ],
     tag: "afrobeat",
@@ -54,11 +50,15 @@ export const beatList = [
   {
     title: "Grime",
     icon: "",
-    color: "",
+    color: "#FF1844",
     items: [
       {
-        name: "",
-        url: "",
+        name: "Drake Type Beat",
+        url: "https://www.youtube.com/watch?v=mY2fYImsniA",
+      },
+      {
+        name: "Drake",
+        url: "https://www.youtube.com/watch?v=tQZB5wu0xuE",
       },
     ],
     tag: "grime",
@@ -66,11 +66,15 @@ export const beatList = [
   {
     title: "90s",
     icon: "",
-    color: "",
+    color: "#453df5",
     items: [
       {
-        name: "",
-        url: "",
+        name: "Drake Type Beat",
+        url: "https://www.youtube.com/watch?v=mY2fYImsniA",
+      },
+      {
+        name: "Drake",
+        url: "https://www.youtube.com/watch?v=tQZB5wu0xuE",
       },
     ],
     tag: "grime",

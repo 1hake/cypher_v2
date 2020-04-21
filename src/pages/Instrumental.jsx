@@ -7,26 +7,23 @@ import { MyLink } from "../component/MyLink";
 import { BeatList } from "../component/BeatList";
 
 const myStyle = {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  width: "100%",
   fontFamily: "Barlow",
   fontWeight: "bold",
   fontSize: "1em",
   color: "#333333",
   flexDirection: "column",
+  height: "400px",
+  // maxWidth: "300px",
+  width: "100%",
 };
 
 export const Instrumental = (props) => {
   const { playing, instru } = useContext(MyContext);
   return (
-    <div style={{ ...myStyle }}>
-      <h1 class="p-4">
-        <span class="font-weight-bold">
-          2. Choisir votre instru sur youtube:
-        </span>
-      </h1>
+    <div
+      class="d-flex flex-column justify-content-center align-items-center"
+      style={{ ...myStyle }}
+    >
       <ReactPlayer
         ref={(player) => console.log(player)}
         controls={false}

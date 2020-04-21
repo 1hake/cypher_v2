@@ -29,7 +29,9 @@ export const ModalBeat = ({ content }) => {
         setPlaying(false);
       }}
     >
-      <DialogTitle>{content.title}</DialogTitle>
+      <DialogTitle style={{ color: "white", backgroundColor: content.color }}>
+        {content.title}
+      </DialogTitle>
       <List>
         {content.items.map((item) => {
           return (

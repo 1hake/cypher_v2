@@ -12,6 +12,7 @@ import { Link, useParams } from "react-router-dom";
 import { InitGame } from "./initGame";
 import { PlayerName } from "../component/PlayerName";
 import { useEffect } from "react";
+import { MyLink } from "../component/MyLink";
 
 const myStyle = {
   display: "flex",
@@ -43,18 +44,24 @@ const CountDown = ({ children }) => {
   const { step, setStep, setPlaying, setFinish } = useContext(MyContext);
   return (
     <div class="d-flex">
-      <Link style={{ textDecoration: "none", color: "#af422d" }} to="/players">
+      <MyLink
+        style={{ textDecoration: "none", color: "#af422d" }}
+        to="/players"
+      >
         <div class="p-4 d-flex flex-column justify-content-center align-items-center">
           <p class="text-white p-1">Retour au menu</p>
           <i class=" fa-2x fas fa-fast-backward"></i>
         </div>
-      </Link>
-      <Link style={{ textDecoration: "none", color: "#af422d" }} to="/players">
+      </MyLink>
+      <MyLink
+        style={{ textDecoration: "none", color: "#af422d" }}
+        to="/players"
+      >
         <div class="p-4 d-flex flex-column justify-content-center align-items-center">
           <p class="text-white p-1">Fin de la partie</p>
           <i class=" fa-2x fas fa-power-off"></i>
         </div>
-      </Link>
+      </MyLink>
     </div>
   );
 };

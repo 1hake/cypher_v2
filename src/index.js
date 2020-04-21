@@ -4,10 +4,12 @@ import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import { MyRouter } from "./Router";
 import { GameContext } from "./reducer/GameContext";
+import { VerticalLinearStepper } from "./pages/Steps";
+import { Layout } from "./pages/Layout";
 
 const App = () => (
   <GameContext>
-    <MyRouter />
+    <Layout />
   </GameContext>
 );
 
