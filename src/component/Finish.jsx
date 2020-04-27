@@ -7,6 +7,7 @@ import { MyLink } from "./MyLink";
 import { Logo } from "./Logo";
 import { Footer } from "./Footer";
 import { PlayerScore } from "./PlayerName";
+import { BlueRapsodie } from "../constants/colors";
 
 const style = {
   height: "100%",
@@ -20,7 +21,7 @@ const style = {
 };
 
 export const Finish = ({ score }) => {
-  const { player1, player2, reset } = useContext(MyContext);
+  const { player1, player2, reset, setPage } = useContext(MyContext);
   let bestPlayer = false;
   if (player1.score > player2.score) {
     bestPlayer = player1.score > player2.score ? player1 : player2;
@@ -50,7 +51,21 @@ export const Finish = ({ score }) => {
           </div>
         </>
       )}
-
+      <div
+        onClick={() => setPage("setup")}
+        style={{
+          marginTop: "50px",
+          backgroundColor: BlueRapsodie,
+          padding: "20px",
+          borderRadius: "100%",
+          color: "white",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <i class="fas fa-2x fa-undo"></i>
+      </div>
       <Footer></Footer>
     </div>
   );
