@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "40339ec0f5e9b633e66ae82d060cddbb",
+    "revision": "1829cf83ad715a98bedc8172ee48a045",
     "url": "/cypher_v2/index.html"
   },
   {
-    "revision": "aa189b2b932d79f64740",
+    "revision": "006d67ded2879e614ab4",
     "url": "/cypher_v2/static/css/main.ba6d23c5.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/cypher_v2/static/js/2.2a2532e6.chunk.js.LICENSE"
   },
   {
-    "revision": "aa189b2b932d79f64740",
-    "url": "/cypher_v2/static/js/main.87ba9827.chunk.js"
+    "revision": "006d67ded2879e614ab4",
+    "url": "/cypher_v2/static/js/main.f7ec9153.chunk.js"
   },
   {
     "revision": "b42838ea647096fc4021",
