@@ -12,6 +12,7 @@ import { Instrumental } from "./Instrumental";
 import { Logo } from "../component/Logo";
 import { Grow } from "@material-ui/core";
 import { CountDown } from "../component/CountDown";
+import { Footer } from "../component/Footer";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -116,15 +117,8 @@ export const VerticalLinearStepper = () => {
             </Step>
           ))}
         </Stepper>
-        {activeStep === steps.length && (
-          <Paper square elevation={0} className={classes.resetContainer}>
-            <Typography>All steps completed - you&apos;re finished</Typography>
-            <Button onClick={handleReset} className={classes.button}>
-              Reset
-            </Button>
-          </Paper>
-        )}
       </div>
+      {activeStep === 2 && <Footer></Footer>}
     </div>
   );
 };

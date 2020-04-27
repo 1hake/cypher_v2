@@ -8,6 +8,7 @@ import { Logo } from "./Logo";
 import { Footer } from "./Footer";
 import { PlayerScore } from "./PlayerName";
 import { BlueRapsodie } from "../constants/colors";
+import { Grow } from "@material-ui/core";
 
 const style = {
   height: "100%",
@@ -51,21 +52,23 @@ export const Finish = ({ score }) => {
           </div>
         </>
       )}
-      <div
-        onClick={() => setPage("setup")}
-        style={{
-          marginTop: "50px",
-          backgroundColor: BlueRapsodie,
-          padding: "20px",
-          borderRadius: "100%",
-          color: "white",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <i class="fas fa-2x fa-undo"></i>
-      </div>
+      <Grow in={true} timeout={500}>
+        <div
+          onClick={() => setPage("setup")}
+          style={{
+            marginTop: "50px",
+            backgroundColor: BlueRapsodie,
+            padding: "20px",
+            borderRadius: "100%",
+            color: "white",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <i class="fas fa-2x fa-undo"></i>
+        </div>
+      </Grow>
       <Footer></Footer>
     </div>
   );

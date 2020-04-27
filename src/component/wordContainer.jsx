@@ -3,6 +3,7 @@ import { words } from "../data/mode";
 import { useContext } from "react";
 import { MyContext } from "../reducer/GameContext";
 import { capitalize } from "../tools/getRandomColor";
+import { Grow } from "@material-ui/core";
 
 const containerStyle = {
   display: "flex",
@@ -39,9 +40,10 @@ function Item(word, setCount, count) {
         if (checked) {
           setCount(count - 1);
           setChecked(!checked);
+        } else {
+          setCount(count + 1);
+          setChecked(!checked);
         }
-        setCount(count + 1);
-        setChecked(!checked);
       }}
       style={{ ...itemStyle(checked) }}
       class="m-1"
@@ -62,16 +64,18 @@ export function WordContainer({ player }) {
   }, [wordList]);
 
   return (
-    <div style={{ ...containerStyle }}>
-      <h6 class="text-center">
-        Placez les mots suivants sur l'instru et cliquez dessus pour valider le
-        score
-      </h6>
-      <div class="mt-3 d-flex flex-wrap justify-content-center">
-        {wordList.map((word) => {
-          return Item(word, setCount, count);
-        })}
+    <Grow in={true} timeout={500}>
+      <div style={{ ...containerStyle }}>
+        <h6 class="text-center">
+          Placez les mots suivants sur l'instru et cliquez dessus pour valider
+          le score
+        </h6>
+        <div class="mt-3 d-flex flex-wrap justify-content-center">
+          {wordList.map((word) => {
+            return Item(word, setCount, count);
+          })}
+        </div>
       </div>
-    </div>
+    </Grow>
   );
 }
