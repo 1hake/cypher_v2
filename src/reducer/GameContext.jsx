@@ -19,6 +19,7 @@ export const GameContext = ({ children }) => {
   const [playing, setPlaying] = useState(false);
   const [wordList, setWordList] = useState(getRandom(words, 8));
   const [instru, setInstru] = useState(null);
+  const [instruName, setInstruName] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [page, setPage] = useState("setup");
   const setPlayer = (player, element) => {
@@ -73,6 +74,8 @@ export const GameContext = ({ children }) => {
         setModalOpen,
         page,
         setPage,
+        instruName,
+        setInstruName,
       }}
     >
       {children}

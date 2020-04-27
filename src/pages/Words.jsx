@@ -18,7 +18,7 @@ const myStyle = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-
+  height: "100vh",
   width: "100%",
   fontFamily: "Barlow",
   fontWeight: "bold",
@@ -33,38 +33,14 @@ function renderTime(value) {
   }
   console.log(value);
   return (
-    <div className="timer">
+    <div style={{ marginTop: "10px" }} className="timer">
       <div className="value">{value}</div>
-      <div className="text">Secondes</div>
+      <div style={{ color: "white" }} className="text">
+        Secondes
+      </div>
     </div>
   );
 }
-
-const CountDown = ({ children }) => {
-  const { step, setStep, setPlaying, setFinish } = useContext(MyContext);
-  return (
-    <div class="d-flex">
-      <MyLink
-        style={{ textDecoration: "none", color: "#af422d" }}
-        to="/players"
-      >
-        <div class="p-4 d-flex flex-column justify-content-center align-items-center">
-          <p class="text-white p-1">Retour au menu</p>
-          <i class=" fa-2x fas fa-fast-backward"></i>
-        </div>
-      </MyLink>
-      <MyLink
-        style={{ textDecoration: "none", color: "#af422d" }}
-        to="/players"
-      >
-        <div class="p-4 d-flex flex-column justify-content-center align-items-center">
-          <p class="text-white p-1">Fin de la partie</p>
-          <i class=" fa-2x fas fa-power-off"></i>
-        </div>
-      </MyLink>
-    </div>
-  );
-};
 
 export const Words = (props) => {
   const {
@@ -79,9 +55,7 @@ export const Words = (props) => {
     setFinish,
     reset,
   } = useContext(MyContext);
-  console.log("Words -> step", step);
   const [duration, setDuration] = useState(null);
-  console.log("Words -> player1, player2", player1, player2);
   const [score, setScore] = useState(0);
   useEffect(() => {
     reset();
@@ -106,36 +80,56 @@ export const Words = (props) => {
             <>
               <PlayerName></PlayerName>
               <WordContainer player={step === 1 ? 1 : 2} />
-              <h5 class="p-4">Le jeu commence dans</h5>
-              <CountdownCircleTimer
-                isPlaying
-                durationSeconds={5}
-                colors={[["#ffffff", 0.33], ["#ffffff", 0.33], ["#ffffff"]]}
-                onComplete={() => {
-                  setPlaying(true);
-                  return [false, 0];
+              <div
+                style={{
+                  width: "100%",
+                  backgroundColor: "#453df5",
+                  height: "100%",
+                  borderRadius: "50% 50% 0 0/ 50% 50% 0 0",
                 }}
-                renderTime={renderTime}
-              />
-              <CountDown></CountDown>
+              >
+                <span class="p-4 text-white text-center">
+                  Le jeu commence dans
+                </span>
+                <CountdownCircleTimer
+                  isPlaying
+                  durationSeconds={5}
+                  colors={[["#ffffff"]]}
+                  onComplete={() => {
+                    setPlaying(true);
+                    return [false, 0];
+                  }}
+                  size={150}
+                  renderTime={renderTime}
+                />
+              </div>
             </>
           ) : (
             <div class="d-flex flex-column align-items-center">
               <PlayerName></PlayerName>
               <WordContainer player={step === 1 ? 1 : 2} />
-              <h5 class="p-4">Il vous reste</h5>
-              <CountdownCircleTimer
-                isPlaying
-                durationSeconds={10}
-                colors={[["#ffffff", 0.33], ["#ffffff", 0.33], ["#ffffff"]]}
-                onComplete={() => {
-                  setStep(step + 1);
-                  setPlaying(false);
-                  return [false, 0];
+              <div
+                style={{
+                  width: "100%",
+                  backgroundColor: "#453df5",
+                  height: "100%",
+                  borderRadius: "50% 50% 0 0/ 50% 50% 0 0",
                 }}
-                renderTime={renderTime}
-              />
-              <CountDown></CountDown>
+              >
+                <h5 class="p-4 text-white text-center ">Il vous reste</h5>
+                <CountdownCircleTimer
+                  isPlaying
+                  durationSeconds={10}
+                  colors={[["#ffffff"]]}
+                  onComplete={() => {
+                    setStep(step + 1);
+                    setPlaying(false);
+                    return [false, 0];
+                  }}
+                  size={150}
+                  renderTime={renderTime}
+                />
+              </div>
             </div>
           )}
         </>

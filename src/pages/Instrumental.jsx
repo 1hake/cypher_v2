@@ -34,7 +34,7 @@ export const Instrumental = (props) => {
             ? "https://www.youtube.com/watch?v=" + instru + "?start=20"
             : "https://www.youtube.com/watch?v=KClRc_qd-KI"
         }
-        playing={playing}
+        playing={false}
       />
       <BeatList></BeatList>
     </div>

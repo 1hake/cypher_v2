@@ -11,14 +11,18 @@ const containerStyle = {
   alignItems: "center",
   flexWrap: "wrap",
   width: "80%",
-  margin: "50px",
+  margin: "20px",
 };
 
 const itemStyle = (checked) => {
   return {
-    color: !checked ? "white" : "black",
+    color: checked ? "white" : "black",
     fontFamily: "Barlow",
-    fontSize: "2em",
+    fontSize: "1em",
+    border: "2px solid black",
+    borderRadius: "25px",
+    padding: "10px",
+    backgroundColor: checked ? "black" : "white",
   };
 };
 
@@ -40,7 +44,7 @@ function Item(word, setCount, count) {
         setChecked(!checked);
       }}
       style={{ ...itemStyle(checked) }}
-      class="p-4"
+      class="m-1"
     >
       {capitalize(word)}
     </h4>

@@ -20,6 +20,7 @@ export const ModalBeat = ({ content }) => {
     modalOpen,
     setPlaying,
     playing,
+    setInstruName,
   } = useContext(MyContext);
   return (
     <Dialog
@@ -38,6 +39,7 @@ export const ModalBeat = ({ content }) => {
             <ListItem
               onClick={() => {
                 setInstru(item.url);
+                setInstruName(item.name);
                 setPlaying(!playing);
               }}
             >

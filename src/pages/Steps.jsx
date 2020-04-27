@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    marginTop: "70px",
   },
   activeRoot: {
     width: "100%",
