@@ -14,6 +14,7 @@ export const GameContext = ({ children }) => {
     name: "Player 2",
     score: 0,
   });
+
   const [step, setStep] = useState(1);
   const [finish, setFinish] = useState(false);
   const [playing, setPlaying] = useState(false);
@@ -22,6 +23,7 @@ export const GameContext = ({ children }) => {
   const [instruName, setInstruName] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [page, setPage] = useState("setup");
+
   const setPlayer = (player, element) => {
     if (player === 1) {
       setPlayer1({ ...player1, name: element });
@@ -39,9 +41,9 @@ export const GameContext = ({ children }) => {
   };
 
   const reset = () => {
-    console.log("object");
     setPlaying(false);
     setFinish(false);
+    setStep(1);
     setPlayerScore(1, 0);
     setPlayerScore(2, 0);
   };

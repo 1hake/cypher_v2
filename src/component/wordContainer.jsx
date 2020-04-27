@@ -28,7 +28,7 @@ const itemStyle = (checked) => {
 };
 
 function Item(word, setCount, count) {
-  const { wordList } = useContext(MyContext);
+  const { wordList, playing } = useContext(MyContext);
   const [checked, setChecked] = useState(false);
   useEffect(() => {
     setChecked(false);
@@ -37,12 +37,14 @@ function Item(word, setCount, count) {
   return (
     <h4
       onClick={() => {
-        if (checked) {
-          setCount(count - 1);
-          setChecked(!checked);
-        } else {
-          setCount(count + 1);
-          setChecked(!checked);
+        if (playing) {
+          if (checked) {
+            setCount(count - 1);
+            setChecked(!checked);
+          } else {
+            setCount(count + 1);
+            setChecked(!checked);
+          }
         }
       }}
       style={{ ...itemStyle(checked) }}

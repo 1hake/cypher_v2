@@ -72,7 +72,7 @@ export const Words = (props) => {
       {!finish ? (
         <>
           <PlayerName></PlayerName>
-          <WordContainer player={step === 1 ? 1 : 2} />
+          <WordContainer player={step} />
           <Slide direction={"up"} in={true}>
             <div
               style={{
@@ -102,7 +102,7 @@ export const Words = (props) => {
                   colors={[["#ffffff"]]}
                   onComplete={() => {
                     if (playing === true) {
-                      setDuration(3);
+                      setDuration(5);
                       setPlaying(false);
                       if (step === 1) {
                         setStep(step + 1);
@@ -110,7 +110,7 @@ export const Words = (props) => {
                         setFinish(true);
                       }
                     } else {
-                      setDuration(10);
+                      setDuration(30);
                       setPlaying(true);
                     }
                     // setDuration(10);

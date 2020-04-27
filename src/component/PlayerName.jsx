@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { MyContext } from "../reducer/GameContext";
-import { BlueRapsodie } from "../constants/colors";
+import { BlueRapsodie, YellowRapsodie } from "../constants/colors";
 
 export const PlayerScore = ({ score }) => {
   return (
@@ -10,8 +10,8 @@ export const PlayerScore = ({ score }) => {
         borderRadius: "25px",
         marginLeft: "10px",
         fontSize: "1em",
-        color: "white",
-        backgroundColor: BlueRapsodie,
+        color: "black",
+        backgroundColor: YellowRapsodie,
       }}
       class={
         "font-weight-bold d-flex align-items-center justify-content-center"

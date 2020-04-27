@@ -23,15 +23,18 @@ const style = {
 
 export const Finish = ({ score }) => {
   const { player1, player2, reset, setPage } = useContext(MyContext);
+  console.log("Finish -> player1", player1);
+  console.log("Finish -> player2", player2);
   let bestPlayer = false;
-  if (player1.score > player2.score) {
+  if (player1.score !== player2.score) {
     bestPlayer = player1.score > player2.score ? player1 : player2;
   }
+  console.log("Finish -> bestPlayer", bestPlayer);
   return (
     <div style={{ ...style }}>
       <Logo></Logo>
       <h2 style={{ marginTop: "30px", fontSize: "1em" }}>
-        Bravo vous avez terminé
+        Bravo vous avez terminé!
       </h2>
       {!bestPlayer ? (
         <>
@@ -45,7 +48,12 @@ export const Finish = ({ score }) => {
         </>
       ) : (
         <>
-          <h4 class="font-weight-bold">Le gagnant est {bestPlayer.name}</h4>
+          <h4 style={{ color: "black" }} class="font-weight-bold">
+            Le gagnant est{" "}
+            <span style={{ color: BlueRapsodie, fontSize: "1.5em" }}>
+              {bestPlayer.name}
+            </span>
+          </h4>
           <div class="d-flex align-items-center">
             <h4 class="mr-2">avec un score de</h4>
             <PlayerScore score={bestPlayer.score}></PlayerScore>
@@ -56,7 +64,7 @@ export const Finish = ({ score }) => {
         <div
           onClick={() => setPage("setup")}
           style={{
-            marginTop: "50px",
+            marginTop: "30px",
             backgroundColor: BlueRapsodie,
             padding: "20px",
             borderRadius: "100%",
