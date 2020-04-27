@@ -13,12 +13,13 @@ import { InitGame } from "./initGame";
 import { PlayerName } from "../component/PlayerName";
 import { useEffect } from "react";
 import { MyLink } from "../component/MyLink";
+import { Slide, Grow } from "@material-ui/core";
 
 const myStyle = {
   display: "flex",
 
   alignItems: "center",
-  height: "100vh",
+  height: "100%",
   width: "100%",
   fontFamily: "Barlow",
   fontWeight: "bold",
@@ -64,9 +65,7 @@ export const Words = (props) => {
         width={0}
         height={0}
         url={
-          instru
-            ? "https://www.youtube.com/watch?v=" + instru + "?start=20"
-            : "https://www.youtube.com/watch?v=KClRc_qd-KI"
+          instru && "https://www.youtube.com/watch?v=" + instru + "?start=20"
         }
         playing={playing}
       />
@@ -74,48 +73,55 @@ export const Words = (props) => {
         <>
           <PlayerName></PlayerName>
           <WordContainer player={step === 1 ? 1 : 2} />
-          <div
-            style={{
-              width: "100%",
-              backgroundColor: "#453df5",
-              position: "absolute",
-              height: "40%",
-              borderRadius: "50% 50% 0 0/ 50% 50% 0 0",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              flexDirection: "column",
-              bottom: "0",
-            }}
-          >
-            {!playing && (
-              <span class="p-4 text-white text-center">
-                Le jeu commence dans
-              </span>
-            )}
-            {duration && (
-              <CountdownCircleTimer
-                isPlaying={true}
-                durationSeconds={duration}
-                key={playing}
-                colors={[["#ffffff"]]}
-                onComplete={() => {
-                  if (playing === true) {
-                    setDuration(3);
-                    setPlaying(false);
-                    setStep(step + 1);
-                  } else {
-                    setDuration(10);
-                    setPlaying(true);
-                  }
-                  // setDuration(10);
-                  return [true, 100];
-                }}
-                size={120}
-                renderTime={renderTime}
-              />
-            )}
-          </div>
+          <Slide direction={"up"} in={true}>
+            <div
+              style={{
+                width: "100%",
+                backgroundColor: "#453df5",
+                position: "absolute",
+                height: "40%",
+                borderRadius: "50% 50% 0 0/ 50% 50% 0 0",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                flexDirection: "column",
+                bottom: "0",
+                boxShadow: "inset 0px 13px 23px -19px rgba(0,0,0,0.75)",
+              }}
+            >
+              {!playing && (
+                <span class="p-4 text-white text-center">
+                  Le jeu commence dans
+                </span>
+              )}
+              {duration && (
+                <CountdownCircleTimer
+                  isPlaying={true}
+                  durationSeconds={duration}
+                  key={playing}
+                  colors={[["#ffffff"]]}
+                  onComplete={() => {
+                    if (playing === true) {
+                      setDuration(3);
+                      setPlaying(false);
+                      if (step === 1) {
+                        setStep(step + 1);
+                      } else {
+                        setFinish(true);
+                      }
+                    } else {
+                      setDuration(10);
+                      setPlaying(true);
+                    }
+                    // setDuration(10);
+                    return [true, 100];
+                  }}
+                  size={120}
+                  renderTime={renderTime}
+                />
+              )}
+            </div>
+          </Slide>
         </>
       ) : (
         <Finish score={score}></Finish>

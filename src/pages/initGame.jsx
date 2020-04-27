@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
-import { Game } from "./Game";
+
 import { MyContext } from "../reducer/GameContext";
 
 function renderTime(value) {

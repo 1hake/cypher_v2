@@ -3,18 +3,20 @@ import { useState, useEffect } from "react";
 import { useContext } from "react";
 import { MyContext } from "../reducer/GameContext";
 import { Link } from "react-router-dom";
+import { MyLink } from "./MyLink";
+import { Logo } from "./Logo";
+import { Footer } from "./Footer";
+import { PlayerScore } from "./PlayerName";
 
 const style = {
-  height: "400px",
-  width: "50%",
+  height: "100%",
+  width: "100%",
   display: "flex",
-  justifyContent: "center",
+  justifyContent: "flex-start",
   alignItems: "center",
   flexDirection: "column",
   fontFamily: "Barlow",
-  backgroundColor: "#262626",
-  margin: "50px",
-  borderRadius: "25px",
+  backgroundColor: "white",
 };
 
 export const Finish = ({ score }) => {
@@ -25,34 +27,31 @@ export const Finish = ({ score }) => {
   }
   return (
     <div style={{ ...style }}>
-      <h2 style={{ fontSize: "1em" }}>Bravo vous avez terminé</h2>
+      <Logo></Logo>
+      <h2 style={{ marginTop: "30px", fontSize: "1em" }}>
+        Bravo vous avez terminé
+      </h2>
       {!bestPlayer ? (
         <>
-          <h4 class="font-weight-bold">Vous avez fait égalité</h4>
-          <h4>avec un score de {player1.score}</h4>
+          <h4 style={{ color: "black" }} class="font-weight-bold">
+            Vous avez fait égalité
+          </h4>
+          <div class="d-flex align-items-center">
+            <h4 class="mr-2">avec un score de</h4>
+            <PlayerScore score={bestPlayer.score}></PlayerScore>
+          </div>
         </>
       ) : (
         <>
           <h4 class="font-weight-bold">Le gagnant est {bestPlayer.name}</h4>
-          <h4>avec un score de {bestPlayer.score}</h4>
+          <div class="d-flex align-items-center">
+            <h4 class="mr-2">avec un score de</h4>
+            <PlayerScore score={bestPlayer.score}></PlayerScore>
+          </div>
         </>
       )}
-      <Link
-        onClick={reset}
-        style={{ textDecoration: "none", color: "#af422d" }}
-        to="/words"
-      >
-        Recommencer
-      </Link>
-      <Link
-        style={{ textDecoration: "none", color: "#af422d" }}
-        to="/instrumental"
-      >
-        Changer d'instru
-      </Link>
-      <Link style={{ textDecoration: "none", color: "#af422d" }} to="/players">
-        <span>Changer de joueur</span>
-      </Link>
+
+      <Footer></Footer>
     </div>
   );
 };

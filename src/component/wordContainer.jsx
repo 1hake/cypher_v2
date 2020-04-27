@@ -67,7 +67,7 @@ export function WordContainer({ player }) {
         Placez les mots suivants sur l'instru et cliquez dessus pour valider le
         score
       </h6>
-      <div class="d-flex flex-wrap justify-content-center">
+      <div class="mt-3 d-flex flex-wrap justify-content-center">
         {wordList.map((word) => {
           return Item(word, setCount, count);
         })}
