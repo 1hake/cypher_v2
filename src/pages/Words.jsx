@@ -79,7 +79,7 @@ export const Words = (props) => {
                 width: "100%",
                 backgroundColor: "#453df5",
                 position: "absolute",
-                height: "40%",
+                height: "30%",
                 borderRadius: "50% 50% 0 0/ 50% 50% 0 0",
                 display: "flex",
                 justifyContent: "center",
@@ -90,7 +90,7 @@ export const Words = (props) => {
               }}
             >
               {!playing && (
-                <span class="p-4 text-white text-center">
+                <span class="p-1 text-white text-center">
                   Le jeu commence dans
                 </span>
               )}
@@ -110,13 +110,13 @@ export const Words = (props) => {
                         setFinish(true);
                       }
                     } else {
-                      setDuration(30);
+                      setDuration(10);
                       setPlaying(true);
                     }
                     // setDuration(10);
                     return [true, 100];
                   }}
-                  size={120}
+                  size={100}
                   renderTime={renderTime}
                 />
               )}

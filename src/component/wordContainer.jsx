@@ -11,7 +11,7 @@ const containerStyle = {
   justifyContent: "space-evenly",
   alignItems: "center",
   flexWrap: "wrap",
-
+  width: "90%",
   margin: "20px",
 };
 
@@ -68,10 +68,10 @@ export function WordContainer({ player }) {
   return (
     <Grow in={true} timeout={500}>
       <div style={{ ...containerStyle }}>
-        <h6 class="text-center">
+        <span style={{ fontSize: "0.8em", color: "black" }} class="text-center">
           Placez les mots suivants sur l'instru et cliquez dessus pour valider
           le score
-        </h6>
+        </span>
         <div class="mt-3 d-flex flex-wrap justify-content-center">
           {wordList.map((word) => {
             return Item(word, setCount, count);

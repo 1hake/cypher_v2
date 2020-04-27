@@ -20,7 +20,7 @@ export const CountDown = () => {
   const { setPage } = useContext(MyContext);
   return (
     <div
-      style={{ width: "70vw", height: "400px" }}
+      style={{ marginTop: "50px", marginBottom: "50px" }}
       class={"d-flex justify-content-center align-items-center flex-column"}
     >
       <CountdownCircleTimer
@@ -33,16 +33,6 @@ export const CountDown = () => {
         renderTime={renderTime}
         size={150}
       />
-      <p
-        style={{
-          marginTop: "20px",
-          color: "grey",
-          fontSize: "0.8em",
-          textAlign: "center",
-        }}
-      >
-        Le jeu démarre automatiquement dans 40sec...
-      </p>
     </div>
   );
 };

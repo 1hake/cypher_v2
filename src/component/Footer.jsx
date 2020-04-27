@@ -21,11 +21,13 @@ export const Footer = () => {
         }}
       >
         <span class="text-white">En savoir plus...</span>
-        <img
-          style={{ height: "50px" }}
-          src={require("../svg/tagline.png")}
-          alt=""
-        />
+        <a href="https://www.rapsodiedata.com/">
+          <img
+            style={{ height: "50px" }}
+            src={require("../svg/tagline.png")}
+            alt=""
+          />
+        </a>
       </div>
     </Slide>
   );

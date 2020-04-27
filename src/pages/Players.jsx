@@ -13,7 +13,6 @@ const myStyle = {
   fontSize: "1em",
   color: "#333333",
   flexDirection: "column",
-  height: "400px",
 };
 
 const textStyle = {

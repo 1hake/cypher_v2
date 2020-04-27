@@ -43,19 +43,19 @@ export const Finish = ({ score }) => {
           </h4>
           <div class="d-flex align-items-center">
             <h4 class="mr-2">avec un score de</h4>
-            <PlayerScore score={bestPlayer.score}></PlayerScore>
+            <PlayerScore score={player1.score}></PlayerScore>
           </div>
         </>
       ) : (
         <>
           <h4 style={{ color: "black" }} class="font-weight-bold">
             Le gagnant est{" "}
-            <span style={{ color: BlueRapsodie, fontSize: "1.5em" }}>
+            <span style={{ color: BlueRapsodie, fontSize: "1.2em" }}>
               {bestPlayer.name}
             </span>
           </h4>
           <div class="d-flex align-items-center">
-            <h4 class="mr-2">avec un score de</h4>
+            <h6 class="mr-2">avec un score de</h6>
             <PlayerScore score={bestPlayer.score}></PlayerScore>
           </div>
         </>
@@ -64,9 +64,9 @@ export const Finish = ({ score }) => {
         <div
           onClick={() => setPage("setup")}
           style={{
-            marginTop: "30px",
+            marginTop: "10px",
             backgroundColor: BlueRapsodie,
-            padding: "20px",
+            padding: "15px",
             borderRadius: "100%",
             color: "white",
             display: "flex",
@@ -74,7 +74,7 @@ export const Finish = ({ score }) => {
             alignItems: "center",
           }}
         >
-          <i class="fas fa-2x fa-undo"></i>
+          <i class="fas fa-1x fa-undo"></i>
         </div>
       </Grow>
       <Footer></Footer>

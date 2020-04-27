@@ -12,7 +12,7 @@ const myStyle = {
   fontSize: "1em",
   color: "#333333",
   flexDirection: "column",
-  height: "400px",
+
   // maxWidth: "300px",
   width: "100%",
 };
