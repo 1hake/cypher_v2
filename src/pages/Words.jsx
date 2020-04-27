@@ -16,7 +16,7 @@ import { MyLink } from "../component/MyLink";
 
 const myStyle = {
   display: "flex",
-  justifyContent: "center",
+
   alignItems: "center",
   height: "100vh",
   width: "100%",
@@ -33,11 +33,8 @@ function renderTime(value) {
   }
   console.log(value);
   return (
-    <div style={{ marginTop: "10px" }} className="timer">
+    <div className="timer">
       <div className="value">{value}</div>
-      <div style={{ color: "white" }} className="text">
-        Secondes
-      </div>
     </div>
   );
 }
@@ -55,7 +52,7 @@ export const Words = (props) => {
     setFinish,
     reset,
   } = useContext(MyContext);
-  const [duration, setDuration] = useState(null);
+  const [duration, setDuration] = useState(3);
   const [score, setScore] = useState(0);
   useEffect(() => {
     reset();
@@ -63,7 +60,6 @@ export const Words = (props) => {
   return (
     <div style={{ ...myStyle }}>
       <ReactPlayer
-        ref={(player) => setDuration(player)}
         controls={false}
         width={0}
         height={0}
@@ -76,62 +72,50 @@ export const Words = (props) => {
       />
       {!finish ? (
         <>
-          {!playing ? (
-            <>
-              <PlayerName></PlayerName>
-              <WordContainer player={step === 1 ? 1 : 2} />
-              <div
-                style={{
-                  width: "100%",
-                  backgroundColor: "#453df5",
-                  height: "100%",
-                  borderRadius: "50% 50% 0 0/ 50% 50% 0 0",
-                }}
-              >
-                <span class="p-4 text-white text-center">
-                  Le jeu commence dans
-                </span>
-                <CountdownCircleTimer
-                  isPlaying
-                  durationSeconds={5}
-                  colors={[["#ffffff"]]}
-                  onComplete={() => {
-                    setPlaying(true);
-                    return [false, 0];
-                  }}
-                  size={150}
-                  renderTime={renderTime}
-                />
-              </div>
-            </>
-          ) : (
-            <div class="d-flex flex-column align-items-center">
-              <PlayerName></PlayerName>
-              <WordContainer player={step === 1 ? 1 : 2} />
-              <div
-                style={{
-                  width: "100%",
-                  backgroundColor: "#453df5",
-                  height: "100%",
-                  borderRadius: "50% 50% 0 0/ 50% 50% 0 0",
-                }}
-              >
-                <h5 class="p-4 text-white text-center ">Il vous reste</h5>
-                <CountdownCircleTimer
-                  isPlaying
-                  durationSeconds={10}
-                  colors={[["#ffffff"]]}
-                  onComplete={() => {
-                    setStep(step + 1);
+          <PlayerName></PlayerName>
+          <WordContainer player={step === 1 ? 1 : 2} />
+          <div
+            style={{
+              width: "100%",
+              backgroundColor: "#453df5",
+              position: "absolute",
+              height: "40%",
+              borderRadius: "50% 50% 0 0/ 50% 50% 0 0",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column",
+              bottom: "0",
+            }}
+          >
+            {!playing && (
+              <span class="p-4 text-white text-center">
+                Le jeu commence dans
+              </span>
+            )}
+            {duration && (
+              <CountdownCircleTimer
+                isPlaying={true}
+                durationSeconds={duration}
+                key={playing}
+                colors={[["#ffffff"]]}
+                onComplete={() => {
+                  if (playing === true) {
+                    setDuration(3);
                     setPlaying(false);
-                    return [false, 0];
-                  }}
-                  size={150}
-                  renderTime={renderTime}
-                />
-              </div>
-            </div>
-          )}
+                    setStep(step + 1);
+                  } else {
+                    setDuration(10);
+                    setPlaying(true);
+                  }
+                  // setDuration(10);
+                  return [true, 100];
+                }}
+                size={120}
+                renderTime={renderTime}
+              />
+            )}
+          </div>
         </>
       ) : (
         <Finish score={score}></Finish>

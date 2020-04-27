@@ -21,7 +21,7 @@ export const GameContext = ({ children }) => {
   const [instru, setInstru] = useState(null);
   const [instruName, setInstruName] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
-  const [page, setPage] = useState("setup");
+  const [page, setPage] = useState("words");
   const setPlayer = (player, element) => {
     if (player === 1) {
       setPlayer1({ ...player1, name: element });

@@ -10,7 +10,7 @@ const containerStyle = {
   justifyContent: "space-evenly",
   alignItems: "center",
   flexWrap: "wrap",
-  width: "80%",
+
   margin: "20px",
 };
 
@@ -63,7 +63,7 @@ export function WordContainer({ player }) {
 
   return (
     <div style={{ ...containerStyle }}>
-      <h6>
+      <h6 class="text-center">
         Placez les mots suivants sur l'instru et cliquez dessus pour valider le
         score
       </h6>
