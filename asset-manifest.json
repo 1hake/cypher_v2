@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/cypher_v2/static/css/main.ba6d23c5.chunk.css",
-    "main.js": "/cypher_v2/static/js/main.5890d057.chunk.js",
-    "main.js.map": "/cypher_v2/static/js/main.5890d057.chunk.js.map",
+    "main.js": "/cypher_v2/static/js/main.d320ad60.chunk.js",
+    "main.js.map": "/cypher_v2/static/js/main.d320ad60.chunk.js.map",
     "runtime-main.js": "/cypher_v2/static/js/runtime-main.3bc0b1f5.js",
     "runtime-main.js.map": "/cypher_v2/static/js/runtime-main.3bc0b1f5.js.map",
     "static/js/2.2a2532e6.chunk.js": "/cypher_v2/static/js/2.2a2532e6.chunk.js",
     "static/js/2.2a2532e6.chunk.js.map": "/cypher_v2/static/js/2.2a2532e6.chunk.js.map",
     "index.html": "/cypher_v2/index.html",
-    "precache-manifest.cddb94bf6497e2bd717b1b52c5736524.js": "/cypher_v2/precache-manifest.cddb94bf6497e2bd717b1b52c5736524.js",
+    "precache-manifest.9ef86ab69000c9815c0b59573a730c06.js": "/cypher_v2/precache-manifest.9ef86ab69000c9815c0b59573a730c06.js",
     "service-worker.js": "/cypher_v2/service-worker.js",
     "static/css/main.ba6d23c5.chunk.css.map": "/cypher_v2/static/css/main.ba6d23c5.chunk.css.map",
     "static/js/2.2a2532e6.chunk.js.LICENSE": "/cypher_v2/static/js/2.2a2532e6.chunk.js.LICENSE",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.3bc0b1f5.js",
     "static/js/2.2a2532e6.chunk.js",
     "static/css/main.ba6d23c5.chunk.css",
-    "static/js/main.5890d057.chunk.js"
+    "static/js/main.d320ad60.chunk.js"
   ]
 }
